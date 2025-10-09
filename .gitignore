@@ -1,3 +1,4 @@
 node_modules
 .env
 /Project-Folder/node_modules/
+/Project-Folder/config/development.json
