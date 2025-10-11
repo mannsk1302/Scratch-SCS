@@ -33,3 +33,20 @@ module.exports.registerUser = async (req, res) => {
         res.send(err.message);
     }
 }
+
+module.exports.loginUser = async (req, res) => {
+    let { email, password } = req.body;
+
+    let user = await userModel.findOne({ email: email });
+    if(!user) return res.send("Email or password is incorrect");
+
+    bcrypt.compare(password, user.password, (err, result) => {
+        if(result){
+            let token = generateToken(user);
+            res.cookie("token", token);
+            res.send("User logged in successfully.");
+        } else {
+            res.send("Email or password is incorrect");
+        }
+    })
+}
