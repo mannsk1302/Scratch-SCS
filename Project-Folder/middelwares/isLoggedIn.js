@@ -15,6 +15,7 @@ module.exports = async function (req, res, next) {
             req.user = user;
 
             next();
+
         } catch (err) {
             req.flash('error', 'You must be logged in to view this page.');
             res.redirect('/login');
