@@ -22,4 +22,8 @@ if(process.env.NODE_ENV === 'development'){
     });
 }
 
+router.post('/admin', (req, res) => {
+    res.send('Admin');
+})
+
 module.exports = router;

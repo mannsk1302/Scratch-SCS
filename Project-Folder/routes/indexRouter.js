@@ -9,6 +9,10 @@ router.get('/', (req, res) => {
 
 router.get('/shop', isLoggedIn, (req, res) => {
     res.render('shop');
-})
+});
+
+router.get('/logout', isLoggedIn, (req, res) => {
+    res.render('cart');
+});
 
 module.exports = router;
