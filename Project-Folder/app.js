@@ -33,6 +33,9 @@ app.set('view engine', 'ejs');
 app.use('/', indexRouter)
 app.use('/users', usersRouter);
 app.use('/owners', ownersRouter);
+
+app.use('/products/owners', ownersRouter);
+
 app.use('/products', productsRouter);
 
 app.get('/', (req, res) => {
